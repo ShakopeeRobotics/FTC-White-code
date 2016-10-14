@@ -94,6 +94,23 @@ public class PushbotTeleopTank extends OpMode {
      */
     @Override
     public void loop() {
+        double ch1;
+        double ch2;
+        double ch3;
+        double ch4;
+
+        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
+        ch1 = gamepad1.right_stick_x;
+        ch2 = gamepad1.right_stick_y;
+        ch3 = gamepad1.left_stick_y;
+        ch4 = gamepad1.left_stick_x;
+        robot.frontLeftMotor.setPower(ch3 + ch1 + ch4);
+        robot.rearLeftMotor.setPower(ch3 + ch1 - ch4);
+        robot.frontRightMotor.setPower(ch3 - ch1 - ch4);
+        robot.rearRightMotor.setPower(ch3 - ch1 + ch4);
+
+        /*
+        Old Code -- Need to hang on to just in case ;)
         double left;
         double right;
 
@@ -103,7 +120,7 @@ public class PushbotTeleopTank extends OpMode {
         robot.leftMotor.setPower(left);
         robot.rightMotor.setPower(right);
         robot.lleftMotor.setPower(left);
-        robot.rrightMotor.setPower(right);
+        robot.rrightMotor.setPower(right);*/
 
     /*
      * Code to run ONCE after the driver hits STOP
