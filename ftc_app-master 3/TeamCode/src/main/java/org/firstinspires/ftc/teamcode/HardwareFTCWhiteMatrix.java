@@ -4,8 +4,6 @@ import com.qualcomm.hardware.matrix.MatrixDcMotorController;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.ServoController;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
-
 /**
  * This is NOT an OpMode
  * This class can be used to define all the specific hardware for a single robot.
@@ -28,14 +26,14 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  *
  * In addition, the Matrix Controller has been assigned the name:  "matrix controller"
  */
-public class HardwarePushbotMatrix extends HardwarePushbotTest
+public class HardwareFTCWhiteMatrix extends WhiteHardware
 {
     /* Public OpMode members. */
     private MatrixDcMotorController matrixMotorController = null;
     private ServoController matrixServoController = null;
 
     /* Constructor */
-    public HardwarePushbotMatrix(){
+    public HardwareFTCWhiteMatrix(){
 
     }
 

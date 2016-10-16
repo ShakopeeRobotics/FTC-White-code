@@ -35,8 +35,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
-
 /**
  * This file provides basic Telop driving for a Pushbot robot.
  * The code is structured as an Iterative OpMode
@@ -52,12 +50,12 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
-public class PushbotTeleopTank extends OpMode {
+@TeleOp(name="FTC White TankOp", group="Pushbot")
+public class FTCWhiteTeleopTank extends OpMode {
 
     /* Declare OpMode members. */
-    HardwarePushbotTest robot = new HardwarePushbotTest(); // use the class created to define a Pushbot's hardware
-    // could also use HardwarePushbotMatrix class.
+    WhiteHardware robot = new WhiteHardware(); // use the class created to define a Pushbot's hardware
+    // could also use HardwareFTCWhiteMatrix class.
     // sets rate to move servo
 
 
@@ -94,20 +92,17 @@ public class PushbotTeleopTank extends OpMode {
      */
     @Override
     public void loop() {
-        double ch1;
-        double ch2;
-        double ch3;
-        double ch4;
+        double left;
+        double right;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        ch1 = gamepad1.right_stick_x;
-        ch2 = gamepad1.right_stick_y;
-        ch3 = gamepad1.left_stick_y;
-        ch4 = gamepad1.left_stick_x;
-        robot.frontLeftMotor.setPower(ch3 + ch1 + ch4);
-        robot.rearLeftMotor.setPower(ch3 + ch1 - ch4);
-        robot.frontRightMotor.setPower(ch3 - ch1 - ch4);
-        robot.rearRightMotor.setPower(ch3 - ch1 + ch4);
+        left = -gamepad1.left_stick_y;
+        right = -gamepad1.right_stick_y;
+        robot.frontLeftMotor.setPower(left);
+        robot.frontRightMotor.setPower(right);
+        robot.rearLeftMotor.setPower(left);
+        robot.rearRightMotor.setPower(right);
+
 
         /*
         Old Code -- Need to hang on to just in case ;)
